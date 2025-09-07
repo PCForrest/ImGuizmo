@@ -8,27 +8,16 @@ project "ImGuizmo"
 	targetdir (bin_dir .. "/Libs/Vendor/%{prj.name}")
 	objdir (int_dir .. "/Libs/Vendor/%{prj.name}")
 
-	pchheader "%{prj.name}/_framework/pch.hpp"
-	pchsource "src/%{prj.name}/_framework/pch.cpp"
+	--pchheader "%{prj.name}/_framework/pch.hpp"
+	--pchsource "src/%{prj.name}/_framework/pch.cpp"
+   -- Not using precompiled headers
 
 	files
 	{
 		"premake5.lua",
 		".editorconfig",
-		"src/%{prj.name}/_framework/pch.hpp",
-		"src/%{prj.name}/_framework/pch.cpp",
-		"src/%{prj.name}/GraphEditor.cpp",
-		"src/%{prj.name}/GraphEditor.h",
-		"src/%{prj.name}/Images",
-		"src/%{prj.name}/ImCurveEdit.cpp",
-		"src/%{prj.name}/ImCurveEdit.h",
-		"src/%{prj.name}/ImGradient.cpp",
-		"src/%{prj.name}/ImGradient.h",
-		"src/%{prj.name}/ImGuizmo.cpp",
-		"src/%{prj.name}/ImGuizmo.h",
-		"src/%{prj.name}/ImSequencer.cpp",
-		"src/%{prj.name}/ImSequencer.h",
-		"src/%{prj.name}/ImZoomSlider.h",
+      "*.h",
+      "*.cpp"
 	}
 
 	removefiles
@@ -39,7 +28,7 @@ project "ImGuizmo"
 
 	includedirs
 	{
-		"src",
+		"%{IncludeDir.ImGuizmo}",
 		"%{IncludeDir.imgui}",
 	}
 
@@ -62,17 +51,17 @@ project "ImGuizmo"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines { "_DEBUG", "PCFF_DEBUG" }
+		defines { "_DEBUG" }
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines { "NDEBUG", "PCFF_RELEASE" }
+		defines { "NDEBUG" }
 		runtime "Release"
 		optimize "on"
 
 	filter "configurations:Dist"
-		defines { "NDEBUG", "PCFF_DIST" }
+		defines { "NDEBUG" }
 		runtime "Release"
 		optimize "on"
 
