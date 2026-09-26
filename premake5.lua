@@ -14,11 +14,11 @@ project (project_name)
 		"cpp.hint",
 		"local.hint",
 		".editorconfig",
-      "*.h",
-      "*.cpp",
+		"src/*.h",
+		"src/*.cpp",
 	}
 
-	removefiles	{
+	removefiles {
 		"premake5.lua",
 		"cpp.hint",
 		"local.hint",
