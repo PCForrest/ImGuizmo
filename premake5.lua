@@ -47,11 +47,13 @@ project (project_name)
  	   cppdialect "C++17"
 	   staticruntime "Off"
 
+--[[
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
 		cppdialect "C++17"
 		staticruntime "off"
+]]
 
 	filter "configurations:Debug"
 		defines { "_DEBUG" }
